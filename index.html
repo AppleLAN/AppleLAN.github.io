@@ -195,7 +195,6 @@
           return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
       }
       var cook = null;
-
       function pick(){
         var elem = document.getElementById("colorpick").value;
         cook = document.cookie="#" + elem;
@@ -245,9 +244,6 @@
      [],function(data) {
      console.log(res);
 });
-
-
-
           };
 
         $scope.addTodo = function(){
@@ -292,7 +288,12 @@
             'active': true});
 
           }
+          var i, n = $scope.tabs.length;
+            for (i = 0; i < n; ++i) {
+             $scope.tabs[i].active=false;
+          }
           $scope.currentTab = $scope.tabs[0];
+          $scope.currentTab.active=true;
           $scope.todos = $scope.currentTab.todos;
           if($localStorage.SavedColor != undefined){
             cook = $localStorage.SavedColor;
@@ -307,6 +308,7 @@
           }
 
         };
+
         $scope.addTab = function(){
           $scope.todos = [];
           $scope.show = true;
