@@ -240,7 +240,7 @@
 
          $scope.import = function () {
              selected_file = document.getElementById('input').files[0];
-             alasql('SELECT * FROM XLSX("/Users/alanbuscaglia/AppleLAN.github.io/selected_file.xlsx",{headers:true,sheetid:"Sheet2",range:"A1:D100"})',
+             alasql('SELECT * FROM XLSX("file:///Users/alanbuscaglia/AppleLAN.github.io/selected_file.xlsx",{headers:true,sheetid:"Sheet2",range:"A1:D100"})',
      [],function(data) {
      console.log(res);
 });
